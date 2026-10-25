@@ -25,3 +25,6 @@ dist-ssr
 
 request.log
 error.log
+
+# Variables de entorno
+.env

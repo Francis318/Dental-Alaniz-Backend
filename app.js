@@ -1,7 +1,9 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const doctorRoutes = require("./routes/doctors");
+const userRoutes = require("./routes/users");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -15,6 +17,8 @@ mongoose
   .catch((err) => console.error("Error al conectar a MongoDB:", err));
 
 app.use("/doctors", doctorRoutes);
+app.use("/", userRoutes);
+
 app.get("/", (req, res) => {
   res.send("API de Clínica Dental Alaniz funcionando ");
 });

@@ -4,11 +4,10 @@ const {
   createDoctor,
   deleteDoctor,
 } = require("../controllers/doctors");
+const auth = require("../middlewares/auth");
 
 router.get("/", getDoctors);
-
-router.post("/", createDoctor);
-
-router.delete("/:doctorId", deleteDoctor);
+router.post("/", auth, createDoctor);
+router.delete("/:doctorId", auth, deleteDoctor);
 
 module.exports = router;
